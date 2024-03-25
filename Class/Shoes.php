@@ -14,29 +14,26 @@ class Shoes
         $this->des = $des;
         $this->datePro = $datePro;
     }
-    public static function getShoes($sql)
+    public static function getImagesShoes(PDO $pdo, $id)
     {
-        global $pdo;
-        $shoes = $pdo->query($sql);
-        foreach ($shoes->fecthAll(PDO::FETCH_ASSOC)  as $row) {
-            $shoes = new Shoes();
-            foreach ($row as $key => $sho) {
-                $shoes->{$key} = $row[$key];
-            }
-            $arrShoes[] = $shoes;
+        try {
+            $sql = "SELECT * FROM `imageshoes` WHERE `id` = $id";
+            $stmt = $pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error from catch Shoes SQL" . $e->getMessage();
+            return false;
         }
-        return $arrShoes;
     }
-    public static function getById($id)
+    public static function getShoes(PDO $pdo)
     {
-        global $pdo;
-        $sql = "SELECT *  FROM `shoes` WHERE `id` = '$id'";
-        $shoes = new Shoes();
-        $temp = $pdo->query($sql);
-        $row =  $temp->fecth(PDO::FETCH_ASSOC);
-        foreach ($row as $key => $sho) {
-            $shoes->{$key} = $row[$key];
+        try {
+            $sql = "SELECT * FROM `shoes`";
+            $stmt = $pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error from catch Shoes SQL" . $e->getMessage();
+            return false;
         }
-        return $shoes;
     }
 }
