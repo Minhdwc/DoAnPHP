@@ -36,4 +36,15 @@ class Shoes
             return false;
         }
     }
+    public static function get4Shoes(PDO $pdo)
+    {
+        try {
+            $sql = "SELECT * FROM `shoes`";
+            $stmt = $pdo->query($sql);
+            return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 4);
+        } catch (PDOException $e) {
+            echo "Lỗi!!" + $e->getMessage();
+            return false;
+        }
+    }
 }
