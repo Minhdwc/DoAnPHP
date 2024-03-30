@@ -5,7 +5,7 @@
                 <img src="./template/images/logo (1).png" alt="">
             </div>
             <div class="col-4">
-                <input type="text" class="input-footer" placeholder="Enter your Email">
+                <input type="email" class="input-footer" placeholder="Enter your Email">
                 <button class="btn"><i class="fa-solid icon-footer fa-angle-right"></i></button>
             </div>
             <div class="col-4">
