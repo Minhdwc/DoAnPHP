@@ -62,9 +62,20 @@ class Shoes
     public static function getShoesFromCate(PDO $pdo, $id)
     {
         try {
-            $sql = "SELECT * FROM shoes where cateId = $id";
+            $sql = "SELECT * FROM shoes where idCate = $id";
             $stmt = $pdo->query($sql);
             return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 4);
+        } catch (PDOException $e) {
+            echo "Lỗi khi lấy tất cả từ CSDL: " . $e->getMessage();
+            return false;
+        }
+    }
+    public static function getShoesFromBrand(PDO $pdo, $id)
+    {
+        try {
+            $sql = "SELECT * FROM shoes where idBrand = $id";
+            $stmt = $pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Lỗi khi lấy tất cả từ CSDL: " . $e->getMessage();
             return false;

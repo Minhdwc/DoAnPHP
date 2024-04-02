@@ -27,6 +27,19 @@
         $id = $_GET['categoryID'];
         $products = Shoes::getShoesFromCate($pdo, $id);
     }
+    $idBrand = isset($_GET['idBrand']) ? $_GET['idBrand'] : null;
+
+    if (!is_null($idBrand)) {
+        $products = Shoes::getShoesFromBrand($pdo, $idBrand);
+    } else {
+        $products = Shoes::getShoes($pdo);
+    }
+    $idCate = isset($_GET['idCate']) ? ($_GET['idCate']) : null;
+
+    if (!is_null($idCate))
+        $products = Shoes::getShoesFromCate($pdo, $idCate);
+    else
+        $products = Shoes::getShoes($pdo);
     ?>
     <div class="p-2 row main" style="border: 1px solid #cdcdcd">
         <div class="col-md-3 mt-3">
@@ -35,7 +48,8 @@
                 $categories = Categories::getCategories($pdo);
                 foreach ($categories as $category) :
                 ?>
-                <a class="text-white nav-link" href=""><?= $category['name'] ?></a>
+                <a class="text-white nav-link"
+                    href="./totalShoes.php?idCate=<?= $category['id'] ?>"><?= $category['name'] ?></a>
                 <?php
                 endforeach;
                 ?>
@@ -49,7 +63,8 @@
                         $brands = Brand::getBrand($pdo);
                         foreach ($brands as $brand) :
                         ?>
-                        <li><a class="dropdown-item" href=""><?= $brand['name'] ?></a></li>
+                        <li><a class="dropdown-item"
+                                href="./totalShoes.php?idBrand=<?= $brand['id'] ?>"><?= $brand['name'] ?></a></li>
                         <?php
                         endforeach;
                         ?>

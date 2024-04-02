@@ -10,13 +10,13 @@
                 </div>
                 <div class="col-6 lst-header">
                     <ul class="d-flex align-items-center bg-secondary">
-                        <a class="a-header" href="">
+                        <a class="a-header" href="./index.php">
                             <li class="m-4">Home</li>
                         </a>
                         <a class="a-header" href="">
                             <li class="m-4">Collection</li>
                         </a>
-                        <a class="a-header" href="">
+                        <a class="a-header" href="./totalShoes.php">
                             <li class="m-4">Shoes</li>
                         </a>
                         <a class="a-header" href="">
