@@ -20,7 +20,7 @@ a {
     color: #fff;
 }
 
-a:hover {
+.a-header:hover {
     color: rgb(3, 213, 251);
     transition: 0.7s;
     scale: 1.1;
@@ -70,4 +70,9 @@ p {
 
 .text-info:hover {
     color: aqua;
+}
+
+.card-nike:hover {
+    transition: 0.7s;
+    transform: translateY(-10px);
 }

@@ -36,14 +36,37 @@ class Shoes
             return false;
         }
     }
-    public static function get4Shoes(PDO $pdo)
+    public static function get4Shoes(PDO $pdo, $id)
     {
         try {
-            $sql = "SELECT * FROM `shoes`";
+            $sql = "SELECT * FROM `shoes` WHERE `idPro` = $id";
             $stmt = $pdo->query($sql);
             return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 4);
         } catch (PDOException $e) {
             echo "Lỗi!!" + $e->getMessage();
+            return false;
+        }
+    }
+    public static function getMaxPiceProduct()
+    {
+        global $pdo;
+        $shoes = Shoes::getShoes($pdo);
+        $max = 0;
+        foreach ($shoes as $shoe) {
+            if ($shoe['priceShoes'] > $max) {
+                $max = $shoe['priceShoes'];
+            }
+        }
+        return $max;
+    }
+    public static function getShoesFromCate(PDO $pdo, $id)
+    {
+        try {
+            $sql = "SELECT * FROM shoes where cateId = $id";
+            $stmt = $pdo->query($sql);
+            return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 4);
+        } catch (PDOException $e) {
+            echo "Lỗi khi lấy tất cả từ CSDL: " . $e->getMessage();
             return false;
         }
     }

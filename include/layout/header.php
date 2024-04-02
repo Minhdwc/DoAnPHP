@@ -10,22 +10,22 @@
                 </div>
                 <div class="col-6 lst-header">
                     <ul class="d-flex align-items-center bg-secondary">
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-4">Home</li>
                         </a>
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-4">Collection</li>
                         </a>
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-4">Shoes</li>
                         </a>
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-4">Brands</li>
                         </a>
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-3">Best seller</li>
                         </a>
-                        <a href="">
+                        <a class="a-header" href="">
                             <li class="m-4">About</li>
                         </a>
                     </ul>

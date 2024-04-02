@@ -19,12 +19,12 @@ class Brand
             return false;
         }
     }
-    public static function get4SBrands(PDO $pdo)
+    public static function get8SBrands(PDO $pdo)
     {
         try {
             $sql = "SELECT * FROM `brands`";
             $stmt = $pdo->query($sql);
-            return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 4);
+            return array_slice($stmt->fetchAll(PDO::FETCH_ASSOC), 0, 8);
         } catch (PDOException $e) {
             echo "Lỗi!!" + $e->getMessage();
             return false;
